@@ -17,7 +17,11 @@ public class Solution {
         
         while (i < n)
         {
-            System.out.println(shortenWord(input.next()));
+            if (input.hasNext())
+            {
+                System.out.println(shortenWord(input.next()));
+            }
+            i = i + 1;
         }
         
         input.close();
@@ -27,7 +31,7 @@ public class Solution {
     
     public static String shortenWord(String word)
     {
-        if (word.length() < 10)
+        if (word.length() <= 10)
         {
             return word;
         }
@@ -35,10 +39,13 @@ public class Solution {
         {
             String intLetters = word.substring(1, word.length() - 1);
             
-            char nLetters = (char)intLetters.length();
+            String nLetters = ((Integer)intLetters.length()).toString();
+            String firstLetter = ((Character)word.charAt(0)).toString();
+            String lastLetter = ((Character)word.charAt(word.length()-1)).toString();
+            String result = firstLetter + nLetters + lastLetter;
             
 
-            return ""+ word.charAt(0)+  nLetters + word.charAt(word.length()-1);
+            return result;
             
         }
     }
